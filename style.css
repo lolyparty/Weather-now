@@ -29,14 +29,19 @@
 }
 
 .currenticon{
-    margin:20px 100px 20px auto;
+    margin:10px 50px 20px auto;
     width:100px;
     height:100px;
+    /* display: inline-block; */
 }
 
 .currentweathericon{
     width:90px;
     height:90px;
+}
+
+.currentdate{
+    padding:40px;
 }
 
 .weatherstat{
