@@ -1,0 +1,67 @@
+*{
+    padding:0;
+    margin:0;
+    box-sizing: border-box;
+}
+
+.container{
+    width:100vw;
+    height:100vh;
+    display:flex;
+    font-family: 'Roboto';
+}
+
+.right{
+    width:50%;
+}
+
+.left{
+    background: url('img/day.png');
+    background-repeat: no-repeat;
+    background-size: cover;
+    width:65%;
+    position: relative;
+    color:#fff;
+}
+
+.weathernow{
+    padding:20px;
+}
+
+.currenticon{
+    margin:20px 100px 20px auto;
+    width:100px;
+    height:100px;
+}
+
+.currentweathericon{
+    width:90px;
+    height:90px;
+}
+
+.weatherstat{
+    position: absolute;
+    bottom:5%;
+    padding:20px;
+}
+
+.temp{
+    font-size: 6rem;
+    display: inline-block;
+}
+
+.location{
+    display: inline-block;
+    margin-left:15px;
+    font-size: 1.5rem;
+}
+
+.time{
+    font-size:1.3rem;
+}
+
+.cloud{
+    display: inline-block;
+    margin-left:15px;
+    font-size: 2rem;
+}
