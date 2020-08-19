@@ -21,7 +21,7 @@ import {ApiKey} from './config.js'
     }
 
     async function currentLocation(){
-    //   const data = await fetch(`http://api.openweathermap.org/data/2.5/weather?lat=${lat}&lon=${long}&appid=`) //current weather
+    //   const data = await fetch(`http://api.openweathermap.org/data/2.5/weather?lat=${lat}&lon=${long}&appid=${myApiKey}`) //current weather
     const data = await fetch(`http://api.openweathermap.org/data/2.5/weather?q=ibadan&appid=${myApiKey}`) //3 hour/5day forecast
       console.log(data)
       const latlong = await data.json()
@@ -52,7 +52,7 @@ import {ApiKey} from './config.js'
     //     async function currentLocation(lat, long){
     //      try{
            
-    //         const data = await fetch(`http://api.openweathermap.org/data/2.5/onecall?lat=${lat}&lon=${long}&units=metric&appid=`) //daily and hourly forecast
+    //         const data = await fetch(`http://api.openweathermap.org/data/2.5/onecall?lat=${lat}&lon=${long}&units=metric&appid=${myApiKey}`) //daily and hourly forecast
 
     //           console.log(data)
     //           const latlong = await data.json()
@@ -66,9 +66,9 @@ import {ApiKey} from './config.js'
     //      }
 
 
-    //       // const data = await fetch(`http://api.openweathermap.org/data/2.5/forecast?lat=${lat}&lon=${long}&appid=`) //3 hour/5day forecast
-    //         // const data = await fetch(`http://api.openweathermap.org/data/2.5/onecall?q=Ibadan&appid=`) //current weather 
-    //         // const data = await fetch(`http://pro.openweathermap.org/data/2.5/forecast/climate?lat=${lat}&lon=${long}&appid=`)
+    //       // const data = await fetch(`http://api.openweathermap.org/data/2.5/forecast?lat=${lat}&lon=${long}&appid=${myApiKey}`) //3 hour/5day forecast
+    //         // const data = await fetch(`http://api.openweathermap.org/data/2.5/onecall?q=Ibadan&appid=${myApiKey}`) //current weather 
+    //         // const data = await fetch(`http://pro.openweathermap.org/data/2.5/forecast/climate?lat=${lat}&lon=${long}&appid=${myApiKey}`)
     // }
 
     // weather();
