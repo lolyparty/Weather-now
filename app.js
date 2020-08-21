@@ -1,33 +1,32 @@
-   // openweather api
-import {ApiKey} from './config.js'
+//    // openweather api
+// import {ApiKey} from './config.js'
 
-   const myApiKey = ApiKey.key
+//    const myApiKey = ApiKey.key
 
-    function getLocation() {
-        if (navigator.geolocation) {
-        navigator.geolocation.getCurrentPosition(showPosition); //showPosition function with parameter position
-        } else { 
-          console.log("Geolocation is not supported by this browser.");
-        }
-      }
+//     function getLocation() {
+//         if (navigator.geolocation) {
+//         navigator.geolocation.getCurrentPosition(showPosition); //showPosition function with parameter position
+//         } else { 
+//           console.log("Geolocation is not supported by this browser.");
+//         }
+//       }
 
-      getLocation()
+//       getLocation()
 
-    function showPosition(position) {
-        var locationlat = position.coords.latitude;
-        var locationlong = position.coords.longitude;
-        console.log(locationlat, locationlong)
-        currentLocation()
-    }
+//     function showPosition(position) {
+//         var locationlat = position.coords.latitude;
+//         var locationlong = position.coords.longitude;
+//         console.log(locationlat, locationlong)
+//         currentLocation()
+//     }
 
-    async function currentLocation(){
-    //   const data = await fetch(`http://api.openweathermap.org/data/2.5/weather?lat=${lat}&lon=${long}&appid=${myApiKey}`) //current weather
-    const data = await fetch(`http://api.openweathermap.org/data/2.5/weather?q=ibadan&appid=${myApiKey}`) //3 hour/5day forecast
-      console.log(data)
-      const latlong = await data.json()
-      console.log(latlong)
-    }
-
+//     async function currentLocation(){
+//     //   const data = await fetch(`http://api.openweathermap.org/data/2.5/weather?lat=${lat}&lon=${long}&appid=${myApiKey}`) //current weather
+//     const data = await fetch(`http://api.openweathermap.org/data/2.5/weather?q=ibadan&appid=${myApiKey}`) //3 hour/5day forecast
+//       console.log(data)
+//       const latlong = await data.json()
+//       console.log(latlong)
+//     }
 
 
     //open weather
