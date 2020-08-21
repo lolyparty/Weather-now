@@ -9,6 +9,7 @@
     height:100vh;
     display:flex;
     font-family: 'Roboto';
+    overflow-x: hidden !important;
 }
 
 .right{
@@ -28,25 +29,30 @@
     padding:20px;
 }
 
-.currenticon{
-    margin:10px 50px 20px auto;
-    width:100px;
-    height:100px;
-    /* display: inline-block; */
+.currentdate{
+    padding:30px 40px 10px 20px;
 }
+
+.date{
+    font-weight: 700;
+}
+
+
+ .currenticon{
+    display: flex;
+    justify-content: flex-start;
+} 
 
 .currentweathericon{
     width:90px;
     height:90px;
-}
-
-.currentdate{
-    padding:40px;
+    margin-left: auto;
+    margin-right:30px;
 }
 
 .weatherstat{
     position: absolute;
-    bottom:5%;
+    bottom:1%;
     padding:20px;
 }
 
@@ -69,4 +75,99 @@
     display: inline-block;
     margin-left:15px;
     font-size: 2rem;
+}
+
+.search{
+    position: absolute;
+    right: 20px;
+    top:1%;
+}
+
+.searchinput{
+    border-radius: 5px;
+    border:1px solid #000;
+    height:25px;
+}
+
+.searchbtn{
+    height:25px;
+    width:50px;
+    cursor: pointer;
+}
+
+.weather_conditions{
+    padding-top: 25px;
+    margin-top:30px;
+}
+
+.conditions_head{
+    text-align: center;
+}
+
+.condition{
+    padding:10px 15px;
+}
+
+.weather_forecast{
+    display: flex;
+    justify-content: space-around;
+    padding-top:110px;
+    padding-bottom: 10px;
+}
+
+.days_forecast{
+    padding:20px 5px;
+}
+
+.day{
+    padding:10px 5px;
+}
+
+@media(max-width:790px){
+    .container{
+        flex-direction: column;
+        overflow-x: hidden !important;
+
+    }
+
+    .left, .right{
+        width:100%;
+    }
+
+    .weatherstat{
+        position: relative;
+        margin-top:15px;
+    }
+
+    .temp{
+        font-size: 4rem;
+    }
+
+    .currenticon{
+        margin-bottom: 50px;
+    }
+
+    .currentweathericon {
+        width: 70px;
+        height: 70px;
+        margin-right: 20px;
+    }
+
+    .location{
+        font-size: 1rem;
+    }
+
+    .cloud{
+        font-size: 1.5rem;
+    }
+
+    .currentdate{
+        margin-top: 5px;
+    }
+}
+
+@media(max-width:790px){
+    .cloud, .location{
+        margin-left: 10px;
+    }
 }
