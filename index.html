@@ -10,9 +10,10 @@
 </head>
 <body>
     <div class="container">
+        
         <div class="left">
             <div class="currentdate">
-                <h3>10th Tuesday, 2020.</h3>
+                <h3 class="date">10th August, 2020.</h3>
             </div>
             <div class="currenticon">
                 <img class="currentweathericon" src="img/weatherIcon.png" alt="currentweather">
@@ -28,7 +29,32 @@
             </div>
         </div>
         <div class="right">
+            <div class="weather_conditions">
+                <h4 class="conditions_head">Weather conditions</h4>
+                <div class="condition wind">Wind</div>
+                <div class="condition Precipitation">Precipitation</div>
+                <div class="condition Humidity">Humidity</div>
+                <div class="condition wind">Wind</div>
+                <div class="condition wind">Wind</div>
+            </div>
+            <div class="weather_forecast">
+                <div class="forecasthours">11:00</div>
+                <div class="forecasthours">12:00</div>
+                <div class="forecasthours">13:00</div>
+                <div class="forecasthours">14:00</div>
+                <div class="forecasthours">15:00</div>
+                <div class="forecasthours">16:00</div>
+            </div>
+            <div class="days_forecast">
+                <div class="day">Monday</div>
+                <div class="day">Tuesday</div>
+                <div class="day">Wednesday</div>
+                <div class="day">Thursday</div>
+            </div>
+        </div>
 
+        <div class="search">
+            <input type="text" name="city" placeholder="City weather" class="searchinput"><button class="searchbtn" type="submit">Submit</button>
         </div>
     </div>
     <script type="module" src="config.js"></script>
