@@ -72,3 +72,21 @@
 
     // weather();
     // // 
+
+    /************************************* window load current weather *************************************************/
+    //get current location long and latt
+    //use long and latt to get current weather
+    //prepare UI
+    //display current weather
+
+    /**************************************search city weather**********************************************************/
+    //get city name
+    //use city name to get current weather
+    //prepare UI
+    //display current weather
+
+    /**************************************** present location weather **********************************************/
+    //get current location long and latt
+    //use long and latt to get current weather
+    //prepare UI
+    //display current weather
