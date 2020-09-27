@@ -8,12 +8,14 @@
     width:100vw;
     height:100vh;
     display:flex;
-    font-family: 'Roboto';
+    font-family: 'Lato';
     overflow-x: hidden !important;
 }
 
 .right{
     width:50%;
+    background: rgba(0, 0, 0, 0.03);
+    
 }
 
 .left{
@@ -35,8 +37,23 @@
 
 .date{
     font-weight: 700;
+    /* font-family: 'Roboto'; */
 }
 
+.condition{
+    max-width:80%;
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-between;
+}
+
+/* .conditionvalue{
+    margin-left: auto;
+} */
+
+.condition:nth-child(1){
+    margin-top:10px;
+}
 
  .currenticon{
     display: flex;
@@ -44,27 +61,41 @@
 } 
 
 .currentweathericon{
-    width:90px;
-    height:90px;
+    /* width:90px; */
+    height:150px; 
     margin-left: auto;
     margin-right:30px;
 }
 
 .weatherstat{
     position: absolute;
-    bottom:1%;
-    padding:20px;
+    bottom:5%;
+    padding:20px 9px 10px 10px;
+    display: flex;
+    width: 100%;
+    font-weight: 300 !important;
 }
 
 .temp{
-    font-size: 6rem;
-    display: inline-block;
+    font-size: 4.5rem;
+    /* display: inline-block; */
+    transform: scaleY(1.3);
+    font-weight: lighter !important;
+}
+
+.degree{
+    font-size: 4rem;
+}
+
+
+.locdate{
+    margin-left:7px;
+    min-width:110px;
 }
 
 .location{
-    display: inline-block;
-    margin-left:15px;
-    font-size: 1.5rem;
+    position: absolute; 
+    bottom:10%;
 }
 
 .time{
@@ -72,32 +103,50 @@
 }
 
 .cloud{
-    display: inline-block;
     margin-left:15px;
     font-size: 2rem;
+    bottom: 10%;
+    position: absolute;
 }
 
 .search{
     position: absolute;
     right: 20px;
     top:1%;
+    margin-top: 7px;
 }
 
 .searchinput{
-    border-radius: 5px;
-    border:1px solid #000;
+    /* border-radius: 5px; */
+    border:1px solid rgba(0, 0, 0, 0.6);
     height:25px;
+    border-top: none;
+    border-left:none;
+    border-right: none;
+    padding-left:5px;
+    background: transparent;
 }
 
 .searchbtn{
     height:25px;
-    width:50px;
+    width:40px;
     cursor: pointer;
+    background: rgba(0, 0, 0, 0.3);
+    border:none;
+    border-radius: 5px;
+    margin-left: 5px;
+    vertical-align: middle;
+    /* padding:10px; */
+}
+
+.searchweather{
+    height:20px;
+    vertical-align: middle;
 }
 
 .weather_conditions{
     padding-top: 25px;
-    margin-top:30px;
+    margin-top:25px;
 }
 
 .conditions_head{
@@ -105,22 +154,62 @@
 }
 
 .condition{
-    padding:10px 15px;
+    padding:5px 15px;
 }
 
 .weather_forecast{
     display: flex;
     justify-content: space-around;
-    padding-top:110px;
+    padding-top:20px;
     padding-bottom: 10px;
 }
 
 .days_forecast{
-    padding:20px 5px;
+    padding:10px 25px 5px 10px;
+    display: flex;
+    justify-content: space-between;
+    overflow-x: scroll;
+    /* scrollbar-width: thin; */
+}
+.days_forecast::-webkit-scrollbar{
+    display: none;
 }
 
 .day{
-    padding:10px 5px;
+    padding:5px 5px;
+    text-align: center;
+    margin:0px 20px;
+    background: #fff;
+    box-shadow: 2px 3px 5px #eeeeee;
+    -webkit-boxshadow:2px 3px 5px #eeeeee;
+    border-radius: 7px;
+    min-width:150px;
+}
+
+.dayIcon{
+    height:30px;
+    width:30px;
+    margin-bottom: 5px;
+}
+
+.dayCondition{
+    margin-top:10px;
+    margin-bottom:10px;
+}
+
+.cond{
+    font-size: 0.8rem;
+}
+
+.daytemp{
+    font-size: 0.9rem;
+}
+
+.icons{
+    height:28px;
+    width:20px;
+    vertical-align: middle;
+    margin-right:10px
 }
 
 @media(max-width:790px){
@@ -134,9 +223,13 @@
         width:100%;
     }
 
+    .right{
+        padding-bottom: 5px;
+    }
+
     .weatherstat{
         position: relative;
-        margin-top:15px;
+        margin-top:155px;
     }
 
     .temp{
@@ -148,13 +241,13 @@
     }
 
     .currentweathericon {
-        width: 70px;
-        height: 70px;
+        width: 90px;
+        height: 90px;
         margin-right: 20px;
     }
 
-    .location{
-        font-size: 1rem;
+    .date{
+        margin-top: 5px;
     }
 
     .cloud{
@@ -162,12 +255,35 @@
     }
 
     .currentdate{
-        margin-top: 5px;
+        margin-top: 10px;
+    }
+
+    input::-webkit-input-placeholder {
+    color:#fff
+  }
+
+  .searchbtn{
+    background: rgba(0, 0, 0,0.3);
+    height:30px;
+    width:45px;
+  }
+}
+
+@media(max-width:410px){
+    .temp{
+        /* transform: scaleY(1.1); */
+        font-weight: 100 !important;
+        font-size: 3.5rem !important;
+    }
+    .cloud{
+        margin-left:5px;
+        font-size: 1.1rem;
     }
 }
 
-@media(max-width:790px){
-    .cloud, .location{
-        margin-left: 10px;
+@media(max-width:300px){
+    .locdate{
+        margin-left:5px;
     }
 }
+
