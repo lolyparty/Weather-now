@@ -6,6 +6,7 @@
     <link rel="icon" href="img/weatherIcon.png">
     <link rel="stylesheet" href="style.css">
     <link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Lato:wght@400&display=swap" rel="stylesheet">
     <title>Weather Now</title>
 </head>
 <body>
@@ -13,51 +14,108 @@
         
         <div class="left">
             <div class="currentdate">
-                <h3 class="date">10th August, 2020.</h3>
+                <h3 class="date">WeatherNow</h3>
             </div>
             <div class="currenticon">
-                <img class="currentweathericon" src="img/weatherIcon.png" alt="currentweather">
+                <img class="currentweathericon" src="" alt="Current Weather">
             </div>
             <div class="weatherstat">
-                <h1 class="temp">23&deg;c</h1>
-                <p class="location">Lagos 
-                    <br>
-                    <span class="time">10:23</span>
-                </p>
-                <p class="cloud">Cloudy</p>
-                <p class="feels">Feels like 27&deg;c</p>
+                
+                    <!-- <div>
+                      <h4 class="temp">23&deg;</h4>
+                    </div>
+                    <div class="locdate">
+                        <div class="location">
+                            <h2>Ibadan</h1>
+                            
+                            <p>19, Mon Sep '20</p>
+                        </div>    
+                    </div>
+
+                    <div>
+                        <p class="cloud">Broken clouds</p>
+                    </div> -->
+
             </div>
         </div>
         <div class="right">
             <div class="weather_conditions">
-                <h4 class="conditions_head">Weather conditions</h4>
-                <div class="condition wind">Wind</div>
-                <div class="condition Precipitation">Precipitation</div>
-                <div class="condition Humidity">Humidity</div>
-                <div class="condition wind">Wind</div>
-                <div class="condition wind">Wind</div>
+                <!-- <h4 class="conditions_head">Weather conditions</h4> -->
+                <!-- <div>
+                    <div class="condition wind">Wind</div>
+                    <div class="condition Precipitation">Pressure</div>
+                    <div class="condition Humidity">Humidity</div>
+                    <div class="condition wind">Max Temperature</div>
+                    <div class="condition wind">Min Temperature</div>
+                </div> -->
             </div>
             <div class="weather_forecast">
-                <div class="forecasthours">11:00</div>
-                <div class="forecasthours">12:00</div>
-                <div class="forecasthours">13:00</div>
-                <div class="forecasthours">14:00</div>
-                <div class="forecasthours">15:00</div>
-                <div class="forecasthours">16:00</div>
+                <canvas id="myChart">
+                    <!-- <div class="forecasthours">11:00</div>
+                    <div class="forecasthours">12:00</div>
+                    <div class="forecasthours">13:00</div>
+                    <div class="forecasthours">14:00</div>
+                    <div class="forecasthours">15:00</div>
+                    <div class="forecasthours">16:00</div> -->
+                </canvas>
             </div>
             <div class="days_forecast">
-                <div class="day">Monday</div>
-                <div class="day">Tuesday</div>
-                <div class="day">Wednesday</div>
-                <div class="day">Thursday</div>
-            </div>
+                <!-- <div class="day">
+                    <div class="">Monday</div>
+                    <div class="dayCondition">
+                        <img src="" class="dayIcon">
+                        <br>
+                        <span class="cond">condition</span>
+                    </div>
+                    <div class="daytemp">23&deg;/24&deg;</div>
+                </div>
+                <div class="day">
+                    <div class="">Tuesday</div>
+                    <div class="dayCondition">
+                        <img src="" class="dayIcon">
+                        <br>
+                        <span class="cond">condition</span>
+                    </div>
+                    <div class="daytemp">23&deg;/24&deg;</div>
+                </div>
+                <div class="day">
+                    <div class="">Wednesday</div>
+                    <div class="dayCondition">
+                        <img src="" class="dayIcon">
+                        <br>
+                        <span class="cond">condition</span>
+                    </div>
+                    <div class="daytemp">23&deg;/24&deg;</div>
+                </div>
+                <div class="day">
+                    <div class="">Thursday</div>
+                    <div class="dayCondition">
+                        <img src="" class="dayIcon">
+                        <br>
+                        <span class="cond">condition</span>
+                    </div>
+                    <div class="daytemp">23&deg;/24&deg;</div>
+                </div>
+                <div class="day">
+                    <div class="">Friday</div>
+                    <div class="dayCondition">
+                        <img src="" class="dayIcon">
+                        <br>
+                        <span class="cond">condition</span>
+                    </div>
+                    <div class="daytemp">23&deg;/24&deg;</div>
+                </div>-->
+            </div> 
         </div>
 
         <div class="search">
-            <input type="text" name="city" placeholder="City weather" class="searchinput"><button class="searchbtn" type="submit">Submit</button>
+            <input type="text" name="city" placeholder="Search City" class="searchinput"><button class="searchbtn" type="submit"><img class="searchweather" src="img/icons8-search.svg"/></button>
         </div>
     </div>
+    
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.3/Chart.min.js" integrity="sha512-s+xg36jbIujB2S2VKfpGmlC3T5V2TF3lY48DX7u2r9XzGzgPsa6wTpOQA7J9iffvdeBN0q9tKzRxVxw1JviZPg==" crossorigin="anonymous"></script>
     <script type="module" src="config.js"></script>
     <script type="module" src="app.js"></script>
+    
 </body>
 </html>
