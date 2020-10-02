@@ -279,16 +279,16 @@
               domClasses.icon.setAttribute('src',iconUrl)
             }
 
-            const dailyUI = (day, Temperature) => {
+            const dailyUI = (day, Temperature,weather) => {
 
               for(let i = 0; i < 6; i++){
                 const UI = `
               <div class="day">
                   <div class="">${day[i]}</div>
                   <div class="dayCondition">
-                      <img src="http://openweathermap.org/img/wn/${Temperature[i].weather[0].icon}@2x.png" class="dayIcon">
+                      <img src="http://openweathermap.org/img/wn/${weather[i]['0'].icon}@2x.png" class="dayIcon">
                       <br>
-                      <span class="cond">${Temperature[i].weather[0].description}</span>
+                      <span class="cond">${weather[i]['0'].description}</span>
                   </div>
                   <div class="daytemp">${Math.floor(Temperature[i].temp.min)}&deg;c/${Math.floor(Temperature[i].temp.max)}&deg;c</div>
               </div>
@@ -317,8 +317,12 @@
                     const dailyW = weather.daily.slice(1,6)
                     const date = displayDate() 
                     lineChart(date.hourCount,HourlyW)
-                    console.log(dailyW)
-                    dailyUI(date.daysCount, dailyW)
+                    
+                    const dayWeather = dailyW.map((el)=>{
+                      return el.weather
+                    })
+                    console.log(dayWeather)
+                    dailyUI(date.daysCount, dailyW, dayWeather)
                     
                     
 
