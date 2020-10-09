@@ -82,9 +82,14 @@ const domClasses = {
   dailyConditions: document.querySelector('.days_forecast'),
   icon: document.querySelector('.currentweathericon'),
   mychart: document.querySelector('.weather_forecast'),
+  // myLocation: document.querySelector('.')
+  searchLocation:document.querySelector('.searchbtn'),
+  serachedInput:document.querySelector('.searchinput')
 };
 
-// const
+// domClasses.searchLocation.addEventListener('mouseover', ()=>{
+//   domClasses.searchInput.style.width = '175px'
+// })
 
 const displayDate = () => {
   const months = [
@@ -221,10 +226,10 @@ const tenTemp = (el) => {
 };
 
 const lineChart = (hours, hourForecast) => {
-  // const hoursData = hours.map((cur)=> parseInt(cur, 10))
-  // console.log(hoursData)
+
   const chart = document.querySelector('#myChart');
   chart.remove();
+  domClasses.mychart.innerHTML = ' ';
 
   domClasses.mychart.insertAdjacentHTML(
     'afterbegin',
@@ -342,11 +347,13 @@ const HourlyWeather = (lat, long) => {
       const dayWeather = dailyW.map((el) => {
         return el.weather;
       });
-      console.log(dayWeather);
-      dailyUI(date.daysCount, dailyW, dayWeather);
-
       //Prepare UI
       //remove loader
+
+      // console.log(dayWeather);
+      dailyUI(date.daysCount, dailyW, dayWeather);
+
+      
     } catch (error) {
       console.log(error);
     }
@@ -415,13 +422,107 @@ window.addEventListener('load', weatherController);
 
 /**************************************search city weather**********************************************************/
 
-//get city name
-//use city name to get current weather
-//prepare UI
-//display current weather
+
+const searchedHourlyWeather = (lat,long) => {
+  async function searchedLocation() {
+    try {
+      //loader
+
+      const data = await fetch(
+        `http://api.openweathermap.org/data/2.5/onecall?lat=${lat}&lon=${long}&units=metric&appid=${myApiKey}`
+      ); //daily and hourly forecast
+
+      // console.log(data)
+      const weather = await data.json();
+      console.log(weather)
+
+      weatherConds(
+        weather.current.wind_speed,
+        weather.current.humidity,
+        weather.current.pressure,
+        weather.current.uvi,
+        weather.current.dew_point
+      );
+      // console.log(weather.hourly)
+      const tempHour = tenTemp(weather.hourly);
+      const HourlyW = tempHour.slice(0, 10);
+      const dailyW = weather.daily.slice(1, 6);
+      const date = displayDate();
+      lineChart(date.hourCount, HourlyW);
+
+      const dayWeather = dailyW.map((el) => {
+        return el.weather;
+      });
+      //Prepare UI
+      //remove loader
+
+      // console.log(dayWeather);
+      dailyUI(date.daysCount, dailyW, dayWeather);
+
+      
+    } catch (error) {
+      console.log(error);
+    }
+  }
+  searchedLocation()
+};
+
+/**************************************** window load current weather **********************************************/
+const searchedWeatherController = (searchInput) => {
+  const weatherData = {};
+
+
+
+  async function currentLocation() {
+    try {
+      // loader
+
+      const data = await fetch(
+        `http://api.openweathermap.org/data/2.5/weather?q=${searchInput}&appid=${myApiKey}&units=metric`
+      ); //current weather
+
+      const currentWeather = await data.json();
+      // console.log(currentWeather)
+      weatherData.cityName = currentWeather.name;
+      weatherData.weather = currentWeather.weather;
+      weatherData.temperature = currentWeather.main;
+      weatherData.wind = currentWeather.wind;
+      weatherData.coord = currentWeather.coord
+      // console.log(weatherData)
+      searchedHourlyWeather(weatherData.coord.lat,weatherData.coord.lon)
+
+
+      //prepare UI
+      //remove loader
+
+      //display current weather
+      const date = displayDate();
+      weatherUi(
+        weatherData.cityName,
+        weatherData.temperature.temp,
+        weatherData.weather[0].description,
+        uiDate(date.currentDay, date.todaysDay, date.Month, date.currentYear)
+      );
+      iconUi(weatherData.weather[0].icon);
+    } catch (error) {
+      console.log(error);
+    }
+  }
+  currentLocation()
+};
+
+domClasses.searchLocation.addEventListener('click',(e)=>{
+  e.preventDefault();
+
+  const Input = domClasses.serachedInput.value
+  console.log(Input)
+  domClasses.serachedInput.value = ' ';
+  domClasses.weather.innerHTML = ' ';
+  domClasses.weatherConditions.innerHTML = ' ';
+  domClasses.dailyConditions.innerHTML = ' ';
+  searchedWeatherController(Input)
+
+})
 
 /**************************************** present location weather **********************************************/
-//get current location long and latt
-//use long and latt to get current weather
-//prepare UI
-//display current weather
+// domClasses.myLocation.addEventListener('click',weatherController);
