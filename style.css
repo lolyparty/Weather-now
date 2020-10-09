@@ -125,7 +125,11 @@
     border-right: none;
     padding-left:5px;
     background: transparent;
+    /* width:0px; */
+    transition: all 1s;
 }
+
+/* .search */
 
 .searchbtn{
     height:25px;
