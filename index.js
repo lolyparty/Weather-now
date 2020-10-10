@@ -213,7 +213,7 @@ const lineChart = (hours, hourForecast) => {
 };
 
 const iconUi = (icon) => {
-  const iconUrl = `http://openweathermap.org/img/wn/${icon}@4x.png`;
+  const iconUrl = `https://openweathermap.org/img/wn/${icon}@4x.png`;
 
   domClasses.icon.setAttribute('src', iconUrl);
 };
@@ -224,7 +224,7 @@ const dailyUI = (day, Temperature, weather) => {
               <div class="day">
                   <div class="">${day[i]}</div>
                   <div class="dayCondition">
-                      <img src="http://openweathermap.org/img/wn/${
+                      <img src="https://openweathermap.org/img/wn/${
                         weather[i]['0'].icon
                       }@2x.png" class="dayIcon">
                       <br>
@@ -246,7 +246,7 @@ const HourlyWeather = (lat, long) => {
       //loader
 
       const data = await fetch(
-        `http://api.openweathermap.org/data/2.5/onecall?lat=${lat}&lon=${long}&units=metric&appid=${myApiKey}`
+        `https://api.openweathermap.org/data/2.5/onecall?lat=${lat}&lon=${long}&units=metric&appid=${myApiKey}`
       ); //daily and hourly forecast
 
       // console.log(data)
@@ -312,7 +312,7 @@ const weatherController = () => {
       // loader
 
       const data = await fetch(
-        `http://api.openweathermap.org/data/2.5/weather?lat=${lat}&lon=${long}&appid=${myApiKey}&units=metric`
+        `https://api.openweathermap.org/data/2.5/weather?lat=${lat}&lon=${long}&appid=${myApiKey}&units=metric`
       ); //current weather
 
       const currentWeather = await data.json();
@@ -352,7 +352,7 @@ const searchedHourlyWeather = (lat,long) => {
       //loader
 
       const data = await fetch(
-        `http://api.openweathermap.org/data/2.5/onecall?lat=${lat}&lon=${long}&units=metric&appid=${myApiKey}`
+        `https://api.openweathermap.org/data/2.5/onecall?lat=${lat}&lon=${long}&units=metric&appid=${myApiKey}`
       ); //daily and hourly forecast
 
       // console.log(data)
@@ -401,7 +401,7 @@ const searchedWeatherController = (searchInput) => {
       // loader
 
       const data = await fetch(
-        `http://api.openweathermap.org/data/2.5/weather?q=${searchInput}&appid=${myApiKey}&units=metric`
+        `https://api.openweathermap.org/data/2.5/weather?q=${searchInput}&appid=${myApiKey}&units=metric`
       ); //current weather
 
       const currentWeather = await data.json();
