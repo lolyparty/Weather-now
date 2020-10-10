@@ -1,7 +1,7 @@
 // openweather api
-import { ApiKey } from './key/config.js';
+import { ApiKey } from './config.js';
 
-const myApiKey = ApiKey.key;
+const myApiKey = '3070eaa7419d6c64f2a80da9e8f61d48';
 
 const domClasses = {
   date: document.querySelector('.currentdate'),
