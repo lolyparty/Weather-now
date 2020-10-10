@@ -10,7 +10,6 @@ const domClasses = {
   dailyConditions: document.querySelector('.days_forecast'),
   icon: document.querySelector('.currentweathericon'),
   mychart: document.querySelector('.weather_forecast'),
-  // myLocation: document.querySelector('.')
   searchLocation:document.querySelector('.searchbtn'),
   serachedInput:document.querySelector('.searchinput')
 };
