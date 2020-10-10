@@ -1,5 +1,5 @@
 // openweather api
-import { ApiKey } from './config.js';
+import { ApiKey } from './key/config.js';
 
 const myApiKey = ApiKey.key;
 
