@@ -164,12 +164,12 @@
 .weather_forecast{
     display: flex;
     justify-content: space-around;
-    padding-top:10px;
-    padding-bottom: 5px;
+    padding-top:15px;
+    padding-bottom: 10px;
 }
 
 .days_forecast{
-    padding:5px 25px 5px 10px;
+    padding:15px 25px 5px 10px;
     display: flex;
     justify-content: space-between;
     overflow-x: scroll;
@@ -214,6 +214,16 @@
     width:20px;
     vertical-align: middle;
     margin-right:10px
+}
+
+.currentlocation{
+    display: inline-block;
+    margin-right:5px;
+}
+
+.locationweather{
+    height:20px;
+    width:20px;
 }
 
 @media(max-width:790px){

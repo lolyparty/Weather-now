@@ -7,7 +7,7 @@
     <link rel="stylesheet" href="style.css">
     <link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Lato:wght@400&display=swap" rel="stylesheet">
-    <title>Weather Now</title>
+    <title>WeatherNow</title>
 </head>
 <body>
     <div class="container">
@@ -17,7 +17,7 @@
                 <h3 class="date">WeatherNow</h3>
             </div>
             <div class="currenticon">
-                <img class="currentweathericon" src="" alt="Current Weather">
+                <!-- <img class="currentweathericon" src="" alt="Current Weather"> -->
             </div>
             <div class="weatherstat">
                 
@@ -109,7 +109,10 @@
         </div>
 
         <div class="search">
-            <input type="text" name="city" placeholder="Search City" class="searchinput"><button class="searchbtn" type="submit"><img class="searchweather" src="img/icons8-search.svg"/></button>
+            <div class="currentlocation">
+                <img class="locationweather" src="img/pin (1).svg" alt="weather of current location" />
+            </div>
+            <input type="text" name="city" placeholder="Search City" class="searchinput"><button aria-label="Search" class="searchbtn" type="submit"><img class="searchweather" src="img/icons8-search.svg"/></button>
         </div>
     </div>
     

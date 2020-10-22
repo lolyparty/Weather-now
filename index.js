@@ -8,25 +8,26 @@ const domClasses = {
   weather: document.querySelector('.weatherstat'),
   weatherConditions: document.querySelector('.weather_conditions'),
   dailyConditions: document.querySelector('.days_forecast'),
-  icon: document.querySelector('.currentweathericon'),
+  icon: document.querySelector('.currenticon'),
   mychart: document.querySelector('.weather_forecast'),
   searchLocation:document.querySelector('.searchbtn'),
-  serachedInput:document.querySelector('.searchinput')
+  searchedInput:document.querySelector('.searchinput'),
+  currentLocationWeather:document.querySelector('.currentlocation')
 };
 
 const displayDate = () => {
   const months = [
-    'January', //28
+    'January', 
     'February',
     'March',
-    'April', //30 3
+    'April', 
     'May',
-    'June', //30 5
+    'June', 
     'July',
     'August',
-    'September', //30 8
+    'September', 
     'October',
-    'November', //30 10
+    'November', 
     'December',
   ];
 
@@ -53,7 +54,7 @@ const displayDate = () => {
   let daysCount = [];
   const countDown = (n) => {
     if (n <= 0) {
-      return; //base
+      return; 
     } else {
       if (Day + n >= 7) {
         daysCount.unshift(Days[Day + n - 7]);
@@ -61,7 +62,7 @@ const displayDate = () => {
         daysCount.unshift(Days[Day + n]);
       }
 
-      countDown(n - 1); //recursive
+      countDown(n - 1); 
       return daysCount;
     }
   };
@@ -70,7 +71,7 @@ const displayDate = () => {
   let hourCount = [];
   const countDwn = (n) => {
     if (n <= 0) {
-      return; //base
+      return; 
     } else {
       if (currentHour + n >= 24) {
         currentHour + n - 24 < 10
@@ -82,7 +83,7 @@ const displayDate = () => {
           : hourCount.unshift(`${currentHour + n}:00`);
       }
 
-      countDwn(n - 1); //recursive
+      countDwn(n - 1); 
       return hourCount;
     }
   };
@@ -134,10 +135,13 @@ const weatherConds = (wind, humidity, pressure, uv, min) => {
   const condition = `
                         <h4 class="conditions_head">Weather conditions</h4>
                         <div class="conditondiv">
-                          <div class="condition wind"><div><img src="img/wind.svg" class="icons">Wind </div><div class="conditionvalue">${wind}m/s</div></div>
-                          <div class="condition Precipitation"><div><img src="img/barometer.svg" class="icons">Pressure</div> <div class="conditionvalue">${pressure}atm</div></div>
-                          <div class="condition Humidity"><div><img src="img/humidity.svg" class="icons">Humidity</div> <div class="conditionvalue">${humidity}%</div></div>
-                          <div class="condition wind"><div><img src="img/uv-protection.svg" class="icons">UV</div> <div class="conditionvalue">${uv}</div></div>
+                          <div class="condition wind"><div><img alt="Wind" src="img/wind.svg" class="icons">Wind </div><div class="conditionvalue">${wind}m/s</div></div>
+
+                          <div class="condition Precipitation"><div><img alt="pressure" src="img/barometer.svg" class="icons">Pressure</div> <div class="conditionvalue">${pressure}atm</div></div>
+
+                          <div class="condition Humidity"><div><img alt="Humidity" src="img/humidity.svg" class="icons">Humidity</div> <div class="conditionvalue">${humidity}%</div></div>
+
+                          <div class="condition wind"><div><img alt="ultra violet ray" src="img/uv-protection.svg" class="icons">UV</div> <div class="conditionvalue">${uv}</div></div>
                         </div>
                         `;
   domClasses.weatherConditions.insertAdjacentHTML('afterbegin', condition);
@@ -151,12 +155,12 @@ const tenTemp = (el) => {
 const lineChart = (hours, hourForecast) => {
 
   const chart = document.querySelector('#myChart');
-  chart.remove();
+  // chart.remove();
   domClasses.mychart.innerHTML = ' ';
 
   domClasses.mychart.insertAdjacentHTML(
     'afterbegin',
-    '<canvas id="myChart" height="190" aria-label="weather forecast chart" role="img"></canvas>'
+    '<canvas id="myChart" height="220" aria-label="weather forecast chart" role="img"></canvas>'
   );
 
   let lineChart = document.querySelector('#myChart');
@@ -215,7 +219,7 @@ const lineChart = (hours, hourForecast) => {
 const iconUi = (icon) => {
   const iconUrl = `https://openweathermap.org/img/wn/${icon}@4x.png`;
 
-  domClasses.icon.setAttribute('src', iconUrl);
+  domClasses.icon.insertAdjacentHTML('afterbegin',`<img class="currentweathericon" src="${iconUrl}" alt="Current Weather"></img>`)
 };
 
 const dailyUI = (day, Temperature, weather) => {
@@ -224,7 +228,7 @@ const dailyUI = (day, Temperature, weather) => {
               <div class="day">
                   <div class="">${day[i]}</div>
                   <div class="dayCondition">
-                      <img src="https://openweathermap.org/img/wn/${
+                      <img alt="weather icon" src="https://openweathermap.org/img/wn/${
                         weather[i]['0'].icon
                       }@2x.png" class="dayIcon">
                       <br>
@@ -309,6 +313,7 @@ const weatherController = () => {
 
   async function currentLocation(lat, long) {
     try {
+
       // loader
 
       const data = await fetch(
@@ -341,7 +346,7 @@ const weatherController = () => {
   }
 };
 
-window.addEventListener('load', weatherController);
+
 
 /**************************************search city weather**********************************************************/
 
@@ -349,6 +354,7 @@ window.addEventListener('load', weatherController);
 const searchedHourlyWeather = (lat,long) => {
   async function searchedLocation() {
     try {
+      
       //loader
 
       const data = await fetch(
@@ -357,7 +363,7 @@ const searchedHourlyWeather = (lat,long) => {
 
       // console.log(data)
       const weather = await data.json();
-      console.log(weather)
+      // console.log(weather)
 
       weatherConds(
         weather.current.wind_speed,
@@ -434,18 +440,31 @@ const searchedWeatherController = (searchInput) => {
   currentLocation()
 };
 
-domClasses.searchLocation.addEventListener('click',(e)=>{
-  e.preventDefault();
-
-  const Input = domClasses.serachedInput.value
-  console.log(Input)
-  domClasses.serachedInput.value = ' ';
+const clearLayout = () =>{
+  domClasses.icon.innerHTML = ' ';
+  domClasses.mychart.innerHTML= ' ';
   domClasses.weather.innerHTML = ' ';
   domClasses.weatherConditions.innerHTML = ' ';
   domClasses.dailyConditions.innerHTML = ' ';
-  searchedWeatherController(Input)
+  domClasses.mychart.innerHTML= ' ';
+}
 
+const callLocation = () =>{
+  clearLayout()
+  weatherController()
+}
+
+domClasses.searchLocation.addEventListener('click',(e)=>{
+  e.preventDefault();
+
+  const Input = domClasses.searchedInput.value
+  clearLayout();
+  domClasses.searchedInput.value = ' ';
+  
+  searchedWeatherController(Input)
 })
 
+window.addEventListener('load', callLocation);
+
 /**************************************** present location weather **********************************************/
-// domClasses.myLocation.addEventListener('click',weatherController);
+domClasses.currentLocationWeather.addEventListener('click',callLocation);
