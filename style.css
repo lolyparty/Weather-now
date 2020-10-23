@@ -19,7 +19,7 @@
 }
 
 .left{
-    background: url('img/day.svg');
+    background: url('img/day.webp');
     background-repeat: no-repeat;
     background-size: cover;
     width:65%;
@@ -263,6 +263,9 @@
     animation:bounce .7s .6s ease infinite;
 }
 
+label{
+    display:none;
+}
 
 
 @keyframes bounce{
