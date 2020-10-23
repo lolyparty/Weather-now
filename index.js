@@ -1,5 +1,4 @@
 // openweather api
-// import { ApiKey } from './config.js';
 
 const myApiKey = '3070eaa7419d6c64f2a80da9e8f61d48';
 
