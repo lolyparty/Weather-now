@@ -229,14 +229,55 @@
 
 .loader{
     position:absolute;
+    top:50%;
+    left:54.3%;
+    z-index: 2;
+    display:none;
+    gap:5px;
 }
 
 .circle{
-    height:20px;
-    width:20px;
+    height:12px;
+    width:12px;
     border-radius: 50%;
-    background:#dddddd;
+    background:#7a7a7a;
 }
+
+.loader.loadanimation{
+    display:flex !important;
+}
+
+.loader.loadanimation .round1{
+    animation:bounce .7s .3s ease infinite;
+}
+
+.loader.loadanimation .round2{
+    animation:bounce .7s .4s ease infinite;
+}
+
+.loader.loadanimation .round3{
+    animation:bounce .7s .5s ease infinite;
+}
+
+.loader.loadanimation .round4{
+    animation:bounce .7s .6s ease infinite;
+}
+
+
+
+@keyframes bounce{
+    0%{
+        transform:translateY(0)
+    }
+    50%{
+        transform:translateY(-8px)
+    }
+    100%{
+        transform: translateY(0);
+    }
+}
+
+
 
 @media(max-width:790px){
     .container{
@@ -292,6 +333,10 @@
     background: rgba(0, 0, 0,0.3);
     height:30px;
     width:45px;
+  }
+
+  .loader{
+      left:45%;
   }
 }
 

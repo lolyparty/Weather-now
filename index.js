@@ -12,7 +12,8 @@ const domClasses = {
   mychart: document.querySelector('.weather_forecast'),
   searchLocation:document.querySelector('.searchbtn'),
   searchedInput:document.querySelector('.searchinput'),
-  currentLocationWeather:document.querySelector('.currentlocation')
+  currentLocationWeather:document.querySelector('.currentlocation'),
+  loaderAnimation:document.querySelector('.loader'),
 };
 
 const displayDate = () => {
@@ -315,6 +316,7 @@ const weatherController = () => {
     try {
 
       // loader
+      domClasses.loaderAnimation.classList.add('loadanimation')
 
       const data = await fetch(
         `https://api.openweathermap.org/data/2.5/weather?lat=${lat}&lon=${long}&appid=${myApiKey}&units=metric`
@@ -330,6 +332,7 @@ const weatherController = () => {
 
       //prepare UI
       //remove loader
+      domClasses.loaderAnimation.classList.remove('loadanimation')
 
       //display current weather
       const date = displayDate();
@@ -356,6 +359,7 @@ const searchedHourlyWeather = (lat,long) => {
     try {
       
       //loader
+      domClasses.loaderAnimation.classList.add('loadanimation')
 
       const data = await fetch(
         `https://api.openweathermap.org/data/2.5/onecall?lat=${lat}&lon=${long}&units=metric&appid=${myApiKey}`
@@ -384,6 +388,7 @@ const searchedHourlyWeather = (lat,long) => {
       });
       //Prepare UI
       //remove loader
+      domClasses.loaderAnimation.classList.remove('loadanimation')
 
       // console.log(dayWeather);
       dailyUI(date.daysCount, dailyW, dayWeather);
@@ -405,6 +410,7 @@ const searchedWeatherController = (searchInput) => {
   async function currentLocation() {
     try {
       // loader
+      domClasses.loaderAnimation.classList.add('loadanimation')
 
       const data = await fetch(
         `https://api.openweathermap.org/data/2.5/weather?q=${searchInput}&appid=${myApiKey}&units=metric`
@@ -423,6 +429,7 @@ const searchedWeatherController = (searchInput) => {
 
       //prepare UI
       //remove loader
+      domClasses.loaderAnimation.classList.remove('loadanimation')
 
       //display current weather
       const date = displayDate();
@@ -454,17 +461,17 @@ const callLocation = () =>{
   weatherController()
 }
 
-// domClasses.searchLocation.addEventListener('click',(e)=>{
-//   e.preventDefault();
+domClasses.searchLocation.addEventListener('click',(e)=>{
+  e.preventDefault();
 
-//   const Input = domClasses.searchedInput.value
-//   clearLayout();
-//   domClasses.searchedInput.value = ' ';
+  const Input = domClasses.searchedInput.value
+  clearLayout();
+  domClasses.searchedInput.value = ' ';
   
-//   searchedWeatherController(Input)
-// })
+  searchedWeatherController(Input)
+})
 
-// window.addEventListener('load', callLocation);
+window.addEventListener('load', callLocation);
 
 /**************************************** present location weather **********************************************/
-// domClasses.currentLocationWeather.addEventListener('click',callLocation);
+domClasses.currentLocationWeather.addEventListener('click',callLocation);
