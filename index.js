@@ -248,6 +248,7 @@ const HourlyWeather = (lat, long) => {
   async function currentLocation() {
     try {
       //loader
+      domClasses.loaderAnimation.classList.add('loadanimation')
 
       const data = await fetch(
         `https://api.openweathermap.org/data/2.5/onecall?lat=${lat}&lon=${long}&units=metric&appid=${myApiKey}`
@@ -276,6 +277,7 @@ const HourlyWeather = (lat, long) => {
       });
       //Prepare UI
       //remove loader
+      domClasses.loaderAnimation.classList.remove('loadanimation')
 
       // console.log(dayWeather);
       dailyUI(date.daysCount, dailyW, dayWeather);
