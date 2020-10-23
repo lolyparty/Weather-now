@@ -224,6 +224,18 @@
 .locationweather{
     height:20px;
     width:20px;
+    cursor: pointer;
+}
+
+.loader{
+    position:absolute;
+}
+
+.circle{
+    height:20px;
+    width:20px;
+    border-radius: 50%;
+    background:#dddddd;
 }
 
 @media(max-width:790px){

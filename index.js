@@ -282,7 +282,7 @@ const HourlyWeather = (lat, long) => {
 
       
     } catch (error) {
-      console.log(error);
+      // console.log(error);
     }
   }
   currentLocation();
@@ -341,7 +341,7 @@ const weatherController = () => {
       );
       iconUi(weatherData.weather[0].icon);
     } catch (error) {
-      console.log(error);
+      // console.log(error);
     }
   }
 };
@@ -390,7 +390,7 @@ const searchedHourlyWeather = (lat,long) => {
 
       
     } catch (error) {
-      console.log(error);
+      // console.log(error);
     }
   }
   searchedLocation()
@@ -434,7 +434,7 @@ const searchedWeatherController = (searchInput) => {
       );
       iconUi(weatherData.weather[0].icon);
     } catch (error) {
-      console.log(error);
+      // console.log(error);
     }
   }
   currentLocation()
@@ -454,17 +454,17 @@ const callLocation = () =>{
   weatherController()
 }
 
-domClasses.searchLocation.addEventListener('click',(e)=>{
-  e.preventDefault();
+// domClasses.searchLocation.addEventListener('click',(e)=>{
+//   e.preventDefault();
 
-  const Input = domClasses.searchedInput.value
-  clearLayout();
-  domClasses.searchedInput.value = ' ';
+//   const Input = domClasses.searchedInput.value
+//   clearLayout();
+//   domClasses.searchedInput.value = ' ';
   
-  searchedWeatherController(Input)
-})
+//   searchedWeatherController(Input)
+// })
 
-window.addEventListener('load', callLocation);
+// window.addEventListener('load', callLocation);
 
 /**************************************** present location weather **********************************************/
-domClasses.currentLocationWeather.addEventListener('click',callLocation);
+// domClasses.currentLocationWeather.addEventListener('click',callLocation);
