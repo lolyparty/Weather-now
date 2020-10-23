@@ -184,8 +184,7 @@
     text-align: center;
     margin:0px 20px;
     background: #fff;
-    box-shadow: 2px 3px 5px #eeeeee;
-    -webkit-boxshadow:2px 3px 5px #eeeeee;
+    box-shadow: 2px 1px 5px 1px #cacaca;
     border-radius: 7px;
     min-width:150px;
 }
