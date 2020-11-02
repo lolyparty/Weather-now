@@ -3,7 +3,7 @@
     "short_name":"WeatherNow",
     "description":"A simple weather forecast appthat shows current weather condition of your location or a place",
     "display":"standalone",
-    "theme_color":"#d4d4d4",
+    "theme_color":"#ffffff",
     "background_color":"#ffffff",
     "start_url":"index.html",
     "orientation":"portrait",
