@@ -476,3 +476,10 @@ window.addEventListener('load', callLocation);
 
 /**************************************** present location weather **********************************************/
 domClasses.currentLocationWeather.addEventListener('click',callLocation);
+
+//service worker
+if('serviceWorker' in navigator){
+  navigator.serviceWorker.register('sw.js')
+  .then(()=>console.log('service worker registered'))
+  .catch(()=>'error registering sesrvice worker')
+}

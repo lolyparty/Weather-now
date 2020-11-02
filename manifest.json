@@ -1,0 +1,74 @@
+{
+    "name":"WeatherNow",
+    "short_name":"WeatherNow",
+    "description":"A simple weather forecast appthat shows current weather condition of your location or a place",
+    "display":"standalone",
+    "theme_color":"#d4d4d4",
+    "background_color":"#ffffff",
+    "start_url":"index.html",
+    "orientation":"portrait",
+    "icons":[
+       {
+           "src":"/icons/weatherIcon-48x48.png",
+           "sizes":"48x48",
+           "type":"image/png",
+           "purpose":"any maskable"
+       },
+       {
+        "src":"/icons/weatherIcon-72x72.png",
+        "sizes":"72x72",
+        "type":"image/png",
+        "purpose":"any maskable" 
+    },
+    {
+        "src":"/icons/weatherIcon-96x96.png",
+        "sizes":"96x96",
+        "type":"image/png",
+        "purpose":"any maskable" 
+    },
+    {
+        "src":"/icons/weatherIcon-120x120.png",
+        "sizes":"120x120",
+        "type":"image/png",
+        "purpose":"any maskable" 
+    },
+    {
+        "src":"/icons/weatherIcon-144x144.png",
+        "sizes":"144x144",
+        "type":"image/png",
+        "purpose":"any maskable" 
+    },
+    {
+        "src":"/icons/weatherIcon-152x152.png",
+        "sizes":"152x152",
+        "type":"image/png",
+        "purpose":"any maskable" 
+    },
+    {
+        "src":"/icons/weatherIcon-167x167.png",
+        "sizes":"167x167",
+        "type":"image/png",
+        "purpose":"any maskable" 
+    },
+    {
+        "src":"/icons/weatherIcon-180x180.png",
+        "sizes":"180x180",
+        "type":"image/png",
+        "purpose":"any maskable" 
+    },
+    {
+        "src":"/icons/weatherIcon-192x192.png",
+        "sizes":"192x192",
+        "type":"image/png",
+        "purpose":"any maskable" 
+    },
+    {
+        "src":"/icons/weatherIcon-512x512.png",
+        "sizes":"512x512",
+        "type":"image/png",
+        "purpose":"any maskable" 
+    }
+
+    ]
+
+}
