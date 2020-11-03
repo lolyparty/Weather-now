@@ -464,9 +464,7 @@ const callLocation = () =>{
   domClasses.currentLocationWeather.style.display = 'none';
 }
 
-domClasses.searchLocation.addEventListener('click',(e)=>{
-  e.preventDefault();
-
+const searchResult =()=>{
   const Input = domClasses.searchedInput.value
   if(Input === '' || Input === ' '){
     alert('Enter a valid city name')
@@ -478,7 +476,22 @@ domClasses.searchLocation.addEventListener('click',(e)=>{
     searchedWeatherController(Input)
     domClasses.currentLocationWeather.style.display = 'inline-block';
   }
+}
+
+domClasses.searchLocation.addEventListener('click',(e)=>{
+  e.preventDefault();
+  searchResult()
+  domClasses.searchLocation.blur()
 })
+
+document.addEventListener('keydown',(e)=>{
+  if(e.key === 'Enter'){
+    e.preventDefault()
+    searchResult()
+    domClasses.searchedInput.blur()
+  }
+})
+
 
 window.addEventListener('load', callLocation);
 
