@@ -1,2 +1,2 @@
 # Weather-now
-Weather app to show current weather
+A progressive Weather app to show current weather and 5-day forecast 
