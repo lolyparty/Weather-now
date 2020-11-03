@@ -248,7 +248,7 @@ const HourlyWeather = (lat, long) => {
   async function currentLocation() {
     try {
       //loader
-      domClasses.loaderAnimation.classList.add('loadanimation')
+      // domClasses.loaderAnimation.classList.add('loadanimation')
 
       const data = await fetch(
         `https://api.openweathermap.org/data/2.5/onecall?lat=${lat}&lon=${long}&units=metric&appid=${myApiKey}`
@@ -317,7 +317,7 @@ const weatherController = () => {
     try {
 
       // loader
-      domClasses.loaderAnimation.classList.add('loadanimation')
+      // domClasses.loaderAnimation.classList.add('loadanimation')
 
       const data = await fetch(
         `https://api.openweathermap.org/data/2.5/weather?lat=${lat}&lon=${long}&appid=${myApiKey}&units=metric`
@@ -360,7 +360,7 @@ const searchedHourlyWeather = (lat,long) => {
     try {
       
       //loader
-      domClasses.loaderAnimation.classList.add('loadanimation')
+      // domClasses.loaderAnimation.classList.add('loadanimation')
 
       const data = await fetch(
         `https://api.openweathermap.org/data/2.5/onecall?lat=${lat}&lon=${long}&units=metric&appid=${myApiKey}`
@@ -411,7 +411,7 @@ const searchedWeatherController = (searchInput) => {
   async function currentLocation() {
     try {
       // loader
-      domClasses.loaderAnimation.classList.add('loadanimation')
+      // domClasses.loaderAnimation.classList.add('loadanimation')
 
       const data = await fetch(
         `https://api.openweathermap.org/data/2.5/weather?q=${searchInput}&appid=${myApiKey}&units=metric`
@@ -459,17 +459,25 @@ const clearLayout = () =>{
 
 const callLocation = () =>{
   clearLayout()
+  domClasses.loaderAnimation.classList.add('loadanimation')
   weatherController()
+  domClasses.currentLocationWeather.style.display = 'none';
 }
 
 domClasses.searchLocation.addEventListener('click',(e)=>{
   e.preventDefault();
 
   const Input = domClasses.searchedInput.value
-  clearLayout();
-  domClasses.searchedInput.value = ' ';
+  if(Input === '' || Input === ' '){
+    alert('Enter a valid city name')
+  }else{
+    clearLayout();
+    domClasses.loaderAnimation.classList.add('loadanimation')
+    domClasses.searchedInput.value = '';
   
-  searchedWeatherController(Input)
+    searchedWeatherController(Input)
+    domClasses.currentLocationWeather.style.display = 'inline-block';
+  }
 })
 
 window.addEventListener('load', callLocation);

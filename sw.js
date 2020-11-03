@@ -1,4 +1,4 @@
-const cacheName = 'watheranowCache-v1';
+const cacheName = 'watheranowCache-v2';
 const cachedAssets = [
     '/',
     'index.js',

@@ -8,6 +8,7 @@
       name="apple-mobile-web-app-status-bar"
       content="#ffffff"
     />
+    <meta name="description" content="A progressive web app to show get current weather of a location as well as forcast for the next five days"/>
     <link rel="icon" href="img/weatherIcon.webp" />
     <link rel="apple-touch-icon" href="icons/weatherIcon-512x512.png" />
     <link rel="apple-touch-icon" href="icons/weatherIcon-192x192.png" />
@@ -35,6 +36,31 @@
   <body>
     <div class="container">
       <div class="left">
+
+        <div class="search">
+          <div class="currentlocation">
+            <img
+              class="locationweather"
+              src="img/pin (1).svg"
+              alt="weather of current location"
+            />
+          </div>
+          <label for="city">Search city weather</label>
+          <input
+            type="text"
+            id="city"
+            name="city"
+            placeholder="Search City"
+            class="searchinput"
+          /><button aria-label="Search" class="searchbtn" type="submit">
+            <img
+              class="searchweather"
+              alt="search weather of a city"
+              src="img/icons8-search.svg"
+            />
+          </button>
+        </div>
+
         <div class="currentdate">
           <h3 class="date">WeatherNow</h3>
         </div>
@@ -126,30 +152,6 @@
                     <div class="daytemp">23&deg;/24&deg;</div>
                 </div>-->
         </div>
-      </div>
-
-      <div class="search">
-        <div class="currentlocation">
-          <img
-            class="locationweather"
-            src="img/pin (1).svg"
-            alt="weather of current location"
-          />
-        </div>
-        <label for="city">Search city weather</label>
-        <input
-          type="text"
-          id="city"
-          name="city"
-          placeholder="Search City"
-          class="searchinput"
-        /><button aria-label="Search" class="searchbtn" type="submit">
-          <img
-            class="searchweather"
-            alt="search weather of a city"
-            src="img/icons8-search.svg"
-          />
-        </button>
       </div>
 
       <div class="loader">
