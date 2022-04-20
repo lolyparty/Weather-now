@@ -119,7 +119,7 @@ const weatherUi = (city, temp, condition, date) => {
             </div>
             <div class="locdate">
                 <div class="location">
-                    <h2>${city}</h1>
+                    <h2>${city}</h2>
                     <p>${date}</p>
                 </div>    
             </div>
